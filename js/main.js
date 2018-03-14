@@ -1,25 +1,25 @@
 $( document ).ready(function(){
+
+// random number between 19-120
     var Random=Math.floor(Math.random()*101+19)
-    // Selects a random number to be shown at the start of the game
-    // Number should be should be between 19 - 120
-    //
+
+// create random number to get
     $('#randomNumber').text(Random);
-    // Appending random number to the randomNumber id in the html doc
-    //
+// random crystals numbers
     var num1= Math.floor(Math.random()*11+1)
     var num2= Math.floor(Math.random()*11+1)
     var num3= Math.floor(Math.random()*11+1)
     var num4= Math.floor(Math.random()*11+1)
-    // Setting up random numbers for each jewel
-    // Random number has to be between 1 - 12
-    // 
+
+//variables objects
     var userTotal= 0; 
     var wins= 0;
     var losses = 0;
-    //  Decaring variables for tallies
+
   $('#numberWins').text(wins);
   $('#numberLosses').text(losses);
-  //resets the game
+
+//resets the game
   function reset(){
         Random=Math.floor(Math.random()*101+19);
         console.log(Random)
@@ -31,28 +31,29 @@ $( document ).ready(function(){
         userTotal= 0;
         $('#finalTotal').text(userTotal);
         } 
-  //adds the wins to the userTotal
-  function yay(){
+//adds the wins and losses 
+  function win(){
   alert("You won!");
     wins++; 
     $('#numberWins').text(wins);
     reset();
   }
-  //addes the losses to the userTotal
+
   function loser(){
   alert ("You lose!");
     losses++;
     $('#numberLosses').text(losses);
     reset()
   }
-  //sets up click for jewels
+
+//sets up click for jewels
     $('#one').on ('click', function(){
       userTotal = userTotal + num1;
       console.log("New userTotal= " + userTotal);
       $('#finalTotal').text(userTotal); 
             //sets win/lose conditions
           if (userTotal == Random){
-            yay();
+            win();
           }
           else if ( userTotal > Random){
             loser();
@@ -63,7 +64,7 @@ $( document ).ready(function(){
       console.log("New userTotal= " + userTotal);
       $('#finalTotal').text(userTotal); 
           if (userTotal == Random){
-            yay();
+            win();
           }
           else if ( userTotal > Random){
             loser();
@@ -73,9 +74,10 @@ $( document ).ready(function(){
       userTotal = userTotal + num3;
       console.log("New userTotal= " + userTotal);
       $('#finalTotal').text(userTotal);
-  //sets win/lose conditions
+
+//sets win/lose conditions
             if (userTotal == Random){
-            yay();
+            win();
           }
           else if ( userTotal > Random){
             loser();
@@ -87,7 +89,7 @@ $( document ).ready(function(){
       $('#finalTotal').text(userTotal); 
         
             if (userTotal == Random){
-            yay();
+            win();
           }
           else if ( userTotal > Random){
             loser();
